@@ -6,9 +6,6 @@ import Quiz1P from './components/Quiz1P'
 import Quiz from './components/Quiz'
 import Thanks from './components/Thanks'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-// import { library } from '@fortawesome/fontawesome-svg-core'
-// import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
-// library.add(faTimesCircle)
 
 
 
