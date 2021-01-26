@@ -17,7 +17,6 @@ function Quiz(props) {
     const [complete, setComplete] = useState(false)
     const [preferences, setPreferences] = useState('')
     const [received, setReceived] = useState(false);
-    const [other, setOther] = useState(false)
 
     const submit = (e) => {
         if ((genres.length >= 4 || genres.includes('all')) && ((year.length > 0 && year.length <= 4) || year.includes('all')) && ((duration.length > 0 && duration.length <= 4) || duration.includes('all'))) {
@@ -39,9 +38,8 @@ function Quiz(props) {
 
     return (
         <Home>
-            <SocketListen setPreferences={setPreferences} preferences={preferences} setReceived={setReceived} setOther={setOther} other={other}/>
+            <SocketListen setPreferences={setPreferences} preferences={preferences} setReceived={setReceived}/>
             <div className="quiz--container">
-            <h2>c?{other? "true" : "false"}</h2>
                 <Genre genres={genres} setGenres={setGenres} />
                 <Duration duration={duration} setDuration={setDuration} />
                 <Year year={year} setYear={setYear} />
@@ -58,7 +56,7 @@ function Quiz(props) {
             </div>
 
 
-            {(received && complete && other) && <Redirect to={{
+            {(received && complete) && <Redirect to={{
                 pathname: "/results",
                 state: {
                     genre: genres,
