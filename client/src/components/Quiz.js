@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Home from './Home';
 import Genre from './Genre';
 import Duration from './Duration';
@@ -7,9 +7,6 @@ import { SocketListen, socket } from '../contexts/socket'
 import { Redirect } from 'react-router-dom';
 
 function Quiz(props) {
-
-
-    const buttonRef = useRef();
 
     const [genres, setGenres] = useState([]);
     const [duration, setDuration] = useState([])
@@ -43,7 +40,7 @@ function Quiz(props) {
                 <Genre genres={genres} setGenres={setGenres} />
                 <Duration duration={duration} setDuration={setDuration} />
                 <Year year={year} setYear={setYear} />
-                <button className='main--btn main--btn--1' ref={buttonRef} onClick={submit}>Next</button>
+                <button className='main--btn main--btn--1' onClick={submit}>Next</button>
 
                 {(complete) &&
                     <div className="spinner--container">
