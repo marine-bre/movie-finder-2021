@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Choices from './Card.js'
 import { socket } from '../contexts/socket'
 import Modal from './Modal.js'
-import Thanks from './Thanks.js'
+import { Redirect} from 'react-router-dom'
 
 function Fetching({ url }) {
 
@@ -66,7 +66,7 @@ function Fetching({ url }) {
             {(index < 20 && setTitle !== [] && !showThanks) &&
                 <Choices title={title[index]} posterUrl={posterUrl[index]} overview={overview[index]} language={language[index]} index={index} handleClick={handleClick}></Choices>
             }
-            {((showThanks && !showModal) || index === 20) && <Thanks />}
+            {((showThanks && !showModal) || index === 20) && <Redirect to="/thanks" />}
         </div>
     );
 }
